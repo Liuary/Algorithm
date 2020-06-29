@@ -181,21 +181,21 @@ void Link<T>::PrintLink()
 
 int main(int argc, char const *argv[])
 {
-    Link<int> l;
-    l.InsertElement(233);
-    l.InsertElement(666);
-    l.InsertElement(999);
+    Link<int> link;
+    link.InsertElement(233);
+    link.InsertElement(666);
+    link.InsertElement(999);
 
-    std::cout << l.GetLinkLength() << std::endl;
+    std::cout << link.GetLinkLength() << std::endl;
 
-    l.DeleteElement(666);
-    l.UpdateElement(233, 520);
+    link.DeleteElement(666);
+    link.UpdateElement(233, 520);
 
-    std::cout << l.GetLinkLength() << std::endl;
-    l.Swap(520, 999);
-    l.Swap(233, 520);
+    std::cout << link.GetLinkLength() << std::endl;
+    link.Swap(520, 999);
+    link.Swap(233, 520);
 
-    l.PrintLink();
+    link.PrintLink();
 
     ::system("pause");
     return 0;
