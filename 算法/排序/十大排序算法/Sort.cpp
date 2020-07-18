@@ -163,12 +163,10 @@ void quickSort(int *arr, int left, int right)
     {
         if (arr[j] < arr[right - 1])
         {
-            ++i;
-            swap(arr[i], arr[j]);
+            swap(arr[++i], arr[j]);
         }
     }
-    ++i;
-    swap(arr[i], arr[right - 1]);
+    swap(arr[++i], arr[right - 1]);
     quickSort(arr, left, i);
     quickSort(arr, i + 1, right);
 }
