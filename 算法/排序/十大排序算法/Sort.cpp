@@ -168,7 +168,7 @@ void quickSort(int *arr, int left, int right)
     }
     swap(arr[++i], arr[right - 1]);
     quickSort(arr, left, i);
-    quickSort(arr, i + 1, right);
+    quickSort(arr, i, right);
 }
 
 // 下面两个函数都是堆排序需要用到的
