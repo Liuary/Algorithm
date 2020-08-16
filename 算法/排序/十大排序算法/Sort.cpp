@@ -149,26 +149,29 @@ void mergeSort(int *arr, int left, int right, int *temp)
  * 时间复杂度: O(nlog2n)
  * 稳定性: 不稳定
  * 最佳用时: 1:52.98
- * 备注: 1 - 在这段代码中，i是一个标记点，比i小的都在i左边，比i大的都在i右边，最终i对应的元素是末位元素
- * 备注: 2 - 即用末位元素作为标记点。排序完成之后，使用递归对子排序进行相同操作，最终不可再分时，排序完成
+ * 备注: 1 - 在这段代码中，i是一个标记点，比i小的都在i左边，比i大的都在i右边，最终i对应的元素是中间位置元素
+ * 备注: 2 - 即用中间位置元素作为标记点。排序完成之后，使用递归对子排序进行相同操作，最终不可再分时，排序完成
  * */
 void quickSort(int *arr, int left, int right)
 {
-    if (left + 1 >= right - 1)
+    if (left >= right)
     {
         return;
     }
     int i = left - 1;
-    for (int j = left; j < right - 1; ++j)
+    int j = right + 1;
+    int x = arr[left + right >> 1];
+    while (i < j)
     {
-        if (arr[j] < arr[right - 1])
+        while (arr[++i] < x);
+        while (arr[--j] > x);
+        if (i < j)
         {
-            swap(arr[++i], arr[j]);
+            swap(arr[i], arr[j]);
         }
     }
-    swap(arr[++i], arr[right - 1]);
-    quickSort(arr, left, i);
-    quickSort(arr, i, right);
+    quickSort(arr, left, j);
+    quickSort(arr, j + 1, right);
 }
 
 // 下面两个函数都是堆排序需要用到的
