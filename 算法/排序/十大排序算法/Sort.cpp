@@ -117,18 +117,19 @@ void shellSort(int *arr, int len)
  * 最佳用时: 02:43.10
  * 备注: 递归拆分数组并排序，最终合并，其中left和right分别是起点和终点，左闭右开，temp是辅助存储的相同大小数组
  * */
-void mergeSort(int *arr, int left, int right, int *temp)
+void MergeSort(int *arr, int l, int r, int *temp)
 {
-    if (left + 1 >= right)
+    if (l + 1 >= r)
     {
         return;
     }
-    int mid = left + (right - left) / 2;
-    mergeSort(arr, left, mid, temp);
-    mergeSort(arr, mid, right, temp);
-    for (int i = left, x = left, y = mid; i < right;)
+    int m = l + r >> 1;
+    MergeSort(arr, l ,m, temp);
+    MergeSort(arr, m, r, temp);
+    int i = l, x = l ,y = m;
+    while (x < m && y < r)
     {
-        if (y < right && x < mid && arr[x] < arr[y] || y > right)
+        if (arr[x] < arr[y])
         {
             temp[i++] = arr[x++];
         }
@@ -137,8 +138,16 @@ void mergeSort(int *arr, int left, int right, int *temp)
             temp[i++] = arr[y++];
         }
     }
-
-    for (int i = left; i < right; ++i)
+    while (x < m)
+    {
+        temp[i++] = arr[x++];
+    }
+    while (y < r)
+    {
+        temp[i++] = arr[y++];
+    }
+    
+    for (i = l; i < r; i++)
     {
         arr[i] = temp[i];
     }
@@ -152,7 +161,7 @@ void mergeSort(int *arr, int left, int right, int *temp)
  * 备注: 1 - 在这段代码中，i是一个标记点，比i小的都在i左边，比i大的都在i右边，最终i对应的元素是中间位置元素
  * 备注: 2 - 即用中间位置元素作为标记点。排序完成之后，使用递归对子排序进行相同操作，最终不可再分时，排序完成
  * */
-void quickSort(int *arr, int left, int right)
+void QuickSort(int *arr, int left, int right)
 {
     if (left >= right)
     {
@@ -170,8 +179,8 @@ void quickSort(int *arr, int left, int right)
             swap(arr[i], arr[j]);
         }
     }
-    quickSort(arr, left, j);
-    quickSort(arr, j + 1, right);
+    QuickSort(arr, left, j);
+    QuickSort(arr, j + 1, right);
 }
 
 // 下面两个函数都是堆排序需要用到的
@@ -299,9 +308,9 @@ int main(int argc, char const *argv[])
     // shellSort(arr, len);
 
     // int T[10];
-    // mergeSort(arr, 0, len, T);
+    // MergeSort(arr, 0, len, T);
 
-    // quickSort(arr, 0, len);
+    // QuickSort(arr, 0, len);
 
     // heapSort(arr, len);
 
