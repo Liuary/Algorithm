@@ -2,7 +2,6 @@
 // https://www.cnblogs.com/SeaSky0606/p/4559990.html
 // https://blog.csdn.net/zhangsy_csdn/article/details/91483600
 // https://www.bilibili.com/video/BV1Eb41147dK?from=search&seid=17028087413122947333
-// 最佳用时是指个人默写该算法代码的速度……
 
 #include <bits\stdc++.h>
 
@@ -31,7 +30,6 @@ void printArray(int *arr, int len)
  * 函数名: 冒泡排序
  * 时间复杂度: O(n^2)
  * 稳定性: 稳定
- * 最佳用时: 00:48.49
  * 备注: 从前往后判断两个相邻元素大小，大者后移，循环n次，最终从小大大排序
  * */
 void bubbleSort(int *arr, int len)
@@ -52,7 +50,6 @@ void bubbleSort(int *arr, int len)
  * 函数名: 选择排序
  * 时间复杂度: O(n^2)
  * 稳定性: 不稳定
- * 最佳用时: 00:53.65
  * 备注: 获取一趟中的最大值，将这个值和每趟最末尾元素交换，index是最大元素的下标
  * */
 void selectSort(int *arr, int len)
@@ -75,7 +72,6 @@ void selectSort(int *arr, int len)
  * 函数名: 插入排序
  * 时间复杂度: O(n^2)
  * 稳定性: 稳定
- * 最佳用时: 00:41.48
  * 备注: 判断当前位置和前面元素大小，小于则与前面元素交换位置
  * */
 void insertSort(int *arr, int len)
@@ -93,7 +89,6 @@ void insertSort(int *arr, int len)
  * 函数名: 希尔排序
  * 时间复杂度: O(nlog2n)
  * 稳定性: 不稳定
- * 最佳用时: 01:06.10
  * 备注: 以插入排序为基础，但是增加步长，这里设置步长为3
  * */
 void shellSort(int *arr, int len)
@@ -114,7 +109,6 @@ void shellSort(int *arr, int len)
  * 函数名: 归并排序
  * 时间复杂度: O(nlog2n)
  * 稳定性: 稳定
- * 最佳用时: 02:43.10
  * 备注: 递归拆分数组并排序，最终合并，其中left和right分别是起点和终点，左闭右开，temp是辅助存储的相同大小数组
  * */
 void MergeSort(int *arr, int l, int r, int *temp)
@@ -157,7 +151,6 @@ void MergeSort(int *arr, int l, int r, int *temp)
  * 函数名: 快速排序
  * 时间复杂度: O(nlog2n)
  * 稳定性: 不稳定
- * 最佳用时: 1:52.98
  * 备注: 1 - 在这段代码中，i是一个标记点，比i小的都在i左边，比i大的都在i右边，最终i对应的元素是中间位置元素
  * 备注: 2 - 即用中间位置元素作为标记点。排序完成之后，使用递归对子排序进行相同操作，最终不可再分时，排序完成
  * */
@@ -222,7 +215,6 @@ void buildHeap(int *arr, int len)
  * 函数名: 堆排序
  * 时间复杂度: O(nlog2n)
  * 稳定性: 不稳定
- * 最佳用时: 
  * 备注: 1 - https://www.bilibili.com/video/BV1Eb41147dK?from=search&seid=17028087413122947333
  * 备注: 2 - 需要用到buildHeap先构建好堆，过程中需要heapify保证父节点大于子节点，最终将堆顶元素和数组最后的值交换并重新heapify
  * 备注: 3 - 去掉数组最末尾的值重复上述操作，最终实现数组排序
@@ -241,7 +233,6 @@ void heapSort(int *arr, int len)
  * 函数名: 计数排序
  * 时间复杂度: O(n + k)
  * 稳定性: 稳定
- * 最佳用时: 
  * 备注: 需要大量额外空间，用额外空间的下标作为计数的容器，记录原始数组对应下标数据出现的次数，最后将数据写入到原始数组
  * */
 void countSort(int *arr, int len)
@@ -277,7 +268,6 @@ void countSort(int *arr, int len)
  * 函数名: 桶排序
  * 时间复杂度: 
  * 稳定性: 
- * 最佳用时: 
  * 备注: 1 - https://www.bilibili.com/video/BV1A4411N7cG?from=search&seid=522678023390689622
  * 备注: 2 - 桶排序使用较少，原理是将数组数据范围中的数据划分为多个桶，将数据分配到桶里，各个桶单独排序，最后统一输出
  * */
@@ -286,7 +276,6 @@ void countSort(int *arr, int len)
  * 函数名: 基数排序
  * 时间复杂度: 
  * 稳定性: 
- * 最佳用时: 
  * 备注: 1 - https://www.bilibili.com/video/BV1UJ411h7Yg?from=search&seid=5246154955251731078
  * 备注: 2 - 基数排序基于桶排序，需要十个桶（十进制，其它进制对应进制数的桶），从最低位（个位）网上依次入桶，
  * 备注: 3 - 然后再倒序放回原数组，接着从最低位到最高位，所有位数都完成后，倒序取出就是从小到大的序列
